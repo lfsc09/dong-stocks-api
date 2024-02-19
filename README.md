@@ -18,6 +18,7 @@ npm init --init-author-name "lfsc09@gmail.com" -y
 
 ```
 npm install --save express
+npm install --save express-validator
 npm install --save-dev @types/node @types/express
 npm install --save-dev typescript
 npm install --save-dev ts-node nodemon
