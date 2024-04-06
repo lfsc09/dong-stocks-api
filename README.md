@@ -8,7 +8,7 @@ npm init --init-author-name "lfsc09@gmail.com" -y
 {
     "scripts": {
         "build": "rimraf ./build && tsc",
-        "start": "npm run build && node build/app.js",
+        "test-build": "node build/app.js",
         "dev": "npx nodemon"
     }
 }
@@ -23,6 +23,7 @@ npm install --save-dev @types/node @types/express
 npm install --save-dev typescript
 npm install --save-dev ts-node nodemon
 npm install --save-dev rimraf
+npm install --save-dev dotenv
 ```
 
 ### Config Enviroment
@@ -34,6 +35,10 @@ npx tsc --init --rootDir src --outDir build --esModuleInterop --resolveJsonModul
 ```
 
 ###### Add nodemon.json (For Cold Reloading)
+
+```
+echo '{ "watch": ["src"], "ext": ".ts,.js", "ignore": [], "exec": "npx ts-node ./src/app.ts" }' > nodemon.json
+```
 
 ```
 {
@@ -51,6 +56,5 @@ npx tsc --init --rootDir src --outDir build --esModuleInterop --resolveJsonModul
 node_modules
 build
 .env
-.env.*
-!.env.*.example
+!.env.example
 ```
