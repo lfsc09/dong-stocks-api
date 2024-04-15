@@ -1,60 +1,29 @@
-### Initialize
+## Initial Setup and Requirements
 
-```
-npm init --init-author-name "lfsc09@gmail.com" -y
-```
+#### File Structure
 
-```
-{
-    "scripts": {
-        "build": "rimraf ./build && tsc",
-        "test-build": "node build/app.js",
-        "dev": "npx nodemon"
-    }
-}
-```
+</br>
 
-### Import List
+#### Env files and variables
 
-```
-npm install --save express
-npm install --save express-validator
-npm install --save-dev @types/node @types/express
-npm install --save-dev typescript
-npm install --save-dev ts-node nodemon
-npm install --save-dev rimraf
-npm install --save-dev dotenv
-```
+Also the only two states are `development` and `production`, both in undercased.
 
-### Config Enviroment
+###### .Env file
 
-###### Generate tsconfig.json
+The enviroment file `.env` will follow the example of `.env.sample` which must be at the root folder.
 
-```
-npx tsc --init --rootDir src --outDir build --esModuleInterop --resolveJsonModule --lib es6 --module commonjs --allowJs true --noImplicitAny true --removeComments true
-```
+This .env file will only be used for the `development` scripts, and are configured at the execution in `nodemon.json`.
 
-###### Add nodemon.json (For Cold Reloading)
+###### For production
 
-```
-echo '{ "watch": ["src"], "ext": ".ts,.js", "ignore": [], "exec": "npx ts-node ./src/app.ts" }' > nodemon.json
-```
+The enviroment for production will be configured in the PM2 server module, as parameters to the server call initialization.
 
-```
-{
-  "watch": ["src"],
-  "ext": ".ts,.js",
-  "ignore": [],
-  "exec": "npx ts-node ./src/app.ts"
-}
-```
+## Project code
 
-###### .gitignore
+#### Clean Architecture
 
-```
-.DS_Store
-node_modules
-build
-.env
-!.env.example
-```
+This project will follow the requirements for `Clean Architecture`, thus the specific folder structure.
+
+#### Tests
+
+Unit and Enviroment Tests are done with the use of `Jest`.
