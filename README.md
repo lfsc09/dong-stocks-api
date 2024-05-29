@@ -22,7 +22,7 @@ The enviroment for production will be configured in the PM2 server module, as pa
 
 #### Clean Architecture
 
-This project will follow the requirements for `Clean Architecture`, thus the specific folder structure.
+This project will follow the guidelines for a `Clean Architecture` project, with `DDD`, and following `SOLID` principles.
 
 #### Tests
 
